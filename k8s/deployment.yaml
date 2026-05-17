@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-tienda
+  labels:
+    app: mi-tienda
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mi-tienda
+  template:
+    metadata:
+      labels:
+        app: mi-tienda
+    spec:
+      containers:
+        - name: mi-tienda
+          image: angeluri/mi-tienda:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
